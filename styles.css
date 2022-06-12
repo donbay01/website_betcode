@@ -20,10 +20,11 @@
     width: 100%;
     background-color: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: 15rem 0;
+    padding: 15px 0;
     position: relative;
 }
 
@@ -56,7 +57,7 @@
 .heroImage {
     width: 80%;
     height: 60%;
-    margin: 40px 0;
+    margin: 30px 0;
 
 }
 
@@ -69,14 +70,6 @@
     background: transparent;
     border: 1px solid #ff5722;
     outline: none;
-    color: white;
-}
-
-.registerBtn {
-    border: none;
-    margin-left: 20px;
-    background: linear-gradient(#ff5722, #ff6600);
-    box-shadow: 0 1px 8px #db3300;
     color: white;
 }
 
@@ -96,6 +89,9 @@ button:hover {
 
 .buttonTag {
     margin: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .submitForm {
@@ -114,12 +110,88 @@ button:hover {
     font-size: 16px;
 }
 
+.download {
+    display: flex;
+    align-items: center;
+}
+
+.downloadItem {
+    margin: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.modal-content {
+    background-color: black;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 80%;
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff5722;
+    opacity: .5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.email {
+    text-decoration: none;
+}
+
+
 @media screen and (max-width: 425px) {
-    @font-face {
-        font-family: Circular;
-        src: url("./fonts/Circular/Circular-Light.ttf");
+
+    .body {
+        height: 90vh;
     }
 
+    .header > h1 {
+        font-size: 45px;
+    }
+
+    button {
+        width: 90px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .tourBtn {
+        width: 50%;
+        font-size: 16px;
+        padding: 10px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+
+    .header {
+        width: 100%;
+    }
 
     .header > h1 {
         font-size: 40px;
@@ -131,29 +203,60 @@ button:hover {
         font-size: 12px;
     }
 
-    .submitText {
-        padding: 10px 5px;
-        height: 40px;
-        border: 1px solid #ff5722;
-        margin: 15px 0;
-        width: 200px;
-        font-size: 12px;
+    .download {
+        flex-direction: column;
     }
 }
 
-@media screen and (max-width: 290px) {
+.tooltip {
+    position: relative;
+    display: inline-block;
 
-    .header {
-        width: 100%;
-    }
+}
 
-    .header > h1 {
-        font-size: 30px;
-    }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #ff6600;
+    opacity: .8;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 20%;
+    margin-left: -60px;
+}
 
-    button {
-        width: 90px;
-        height: 35px;
-        font-size: 12px;
-    }
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.footer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background: #ff5722;
+    opacity: .8;
+    padding: 10px;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.footerLinks {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    margin-top: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 30px;
 }
